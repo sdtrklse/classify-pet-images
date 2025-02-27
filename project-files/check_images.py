@@ -11,39 +11,43 @@ from print_results import print_results
 
 # Main program function
 def main():
-    # Measures total program runtime by collecting start time
+    """
+    Main function that orchestrates the image classification process and calculates runtime.
+
+    This function:
+        - Retrieves command-line arguments
+        - Generates pet image labels
+        - Classifies images using a specified CNN model
+        - Adjusts results for dog classification accuracy
+        - Calculates and prints statistical results
+        - Measures and prints total program runtime
+    """
+    # Measure total program runtime by collecting start time
     start_time = time.time()
 
-    # This function retrieves 3 command-line arguments as input from the user
-    # running the program from a terminal window.
+    # Retrieve command-line arguments
     in_arg = get_input_args()
 
-    # This function creates the results dictionary that contains the results.
+    # Generate pet image labels dictionary
     results = get_pet_labels(in_arg.dir)
 
-    # This function creates classifier labels with classifier function, compares labels,
-    # and adds these results to the results dictionary.
+    # Classify images and update results dictionary
     classify_images(in_arg.dir, results, in_arg.arch)
     
-    # This function adjusts the results dictionary to determine if classifier correctly
-    # classified images as 'a dog' or 'not a dog'. This demonstrates if
-    # model can correctly classify dog images as dogs (regardless of breed).
+    # Adjust results dictionary for dog classification
     adjust_results4_isadog(results, in_arg.dogfile)
 
-    # This function creates the results statistics dictionary that contains a
-    # summary of the results statistics (this includes counts and percentages).
+    # Calculate results statistics
     results_stats = calculates_results_stats(results)
 
-    # This function prints summary results, incorrect classifications of dogs (if requested)
-    # and incorrectly classified breeds (if requested).
+    # Print results and incorrect classifications if requested
     print_results(results, results_stats, in_arg.arch, True, True)
     
     # Measure total program runtime by collecting end time
     end_time = time.time()
 
-    # Computes overall runtime in seconds and prints it in hh:mm:ss format
+    # Compute overall runtime in seconds and print it in hh:mm:ss format
     tot_time = end_time - start_time
-
     hours = int(tot_time / 3600)
     minutes = int((tot_time % 3600) / 60)
     seconds = int((tot_time % 3600) % 60)

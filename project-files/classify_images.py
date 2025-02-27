@@ -10,13 +10,13 @@ def classify_images(images_dir, results_dic, model):
     labels are formatted so that they will match the pet image labels.
     The format will include putting the classifier labels in all lower case
     letters and strip the leading and trailing whitespace characters from them.
-    For example, the classifier function returns = 'Maltese dog, Maltese terrier, Maltese'
-    so the classifier label = 'maltese dog, maltese terrier, maltese'.
+    For example, the classifier function returns = "Maltese dog, Maltese terrier, Maltese"
+    so the classifier label = "maltese dog, maltese terrier, maltese".
     
     Parameters:
         images_dir - The (full) path to the folder of images that are to be
             classified by the classifier function (string)
-        results_dic - Results dictionary with 'key' as image filename and 'value'
+        results_dic - Results dictionary with "key" as image filename and "value"
             as a list. Where the list will contain the following items:
                 index 0 = pet image label (string)
                 --- where index 1 and index 2 are added by this function ---
@@ -28,7 +28,7 @@ def classify_images(images_dir, results_dic, model):
             values must be either: resnet, alexnet, or vgg (string)
     
     Returns:
-           None - results_dic is mutable data type so no return needed.
+        None - results_dic is mutable data type so no return needed.
     """
     
     # Get the classifier labels for each image

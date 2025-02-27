@@ -9,9 +9,9 @@ def get_input_args():
     then the default values are used for the missing arguments.
 
     Command-line arguments:
-        1. Image folder as --dir with default value 'pet-images'
-        2. CNN model architecture as --arch with default value 'vgg'
-        3. Text file with dog names as --dogfile with default value 'dognames.txt'
+        1. Image folder as --dir with default value "pet-images"
+        2. CNN model architecture as --arch with default value "vgg"
+        3. Text file with dog names as --dogfile with default value "dognames.txt"
     
     This function returns these arguments as an ArgumentParser object.
     
@@ -27,26 +27,26 @@ def get_input_args():
 
     # Create 3 command-line arguments as mentioned above using add_argument()
     # from ArguementParser method
-    
-    # Argument 1: Image folder
+
+    # Argument 1: Image folder as --dir with default value "pet-images"
     parser.add_argument(
-        '--dir', type=str,
-        default='pet-images/',
-        help='path to the folder of pet images'
-    )
-    
-    # Argument 2: CNN model architecture
-    parser.add_argument(
-        '--arch', type=str,
-        default='vgg',
-        help='the CNN model architecture'
+        "--dir", type=str,
+        default="pet-images/",
+        help="path to the folder of pet images"
     )
 
-    # Argument 3: Text file with dog names
+    # Argument 2: CNN model architecture as --arch with default value "vgg"
     parser.add_argument(
-        '--dogfile', type=str,
-        default='dognames.txt',
-        help='text file of names of dog breeds'
+        "--arch", type=str,
+        default="vgg",
+        help="the CNN model architecture"
+    )
+
+    # Argument 3: Text file with dog names as --dogfile with default value "labels/dognames.txt"
+    parser.add_argument(
+        "--dogfile", type=str,
+        default="labels/dognames.txt",
+        help="text file of names of dog breeds"
     )
 
     return parser.parse_args()
