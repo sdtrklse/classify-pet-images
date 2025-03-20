@@ -1,7 +1,8 @@
 import os
+from typing import Dict, List
 
 
-def get_pet_labels(image_dir):
+def get_pet_labels(image_dir: str) -> Dict[str, List[str]]:
     """
     Creates a dictionary of pet labels (results_dic) based upon the filenames
     of the image files. These pet image labels are used to check the accuracy
@@ -13,12 +14,12 @@ def get_pet_labels(image_dir):
     (ex. filename = "Boston_terrier_02259.jpg" Pet label = "boston terrier")
     
     Parameters:
-        image_dir - The (full) path to the folder of images that are to be
-            classified by the classifier function (string)
+        image_dir (str): The (full) path to the folder of images that are to be
+            classified by the classifier function.
     
     Returns:
-        results_dic - Dictionary with "key" as image filename and "value" as a
-            list. The list contains for following item:
+        results_dic (Dict[str, List[str]]): Dictionary with "key" as image filename
+            and "value" as a list. The list contains for following item:
                 index 0 = pet image label (string)
     """
     

@@ -10,7 +10,7 @@ from print_results import print_results
 
 
 # Main program function
-def main():
+def main() -> None:
     """
     Main function that orchestrates the image classification process and calculates runtime.
 

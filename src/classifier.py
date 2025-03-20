@@ -1,4 +1,4 @@
-# The code in this file is provided by Udacity and is not written by me
+# The code in this file is provided by Udacity as part of the project.
 
 import ast
 from PIL import Image
@@ -8,21 +8,34 @@ import torchvision.models as models
 from torch import __version__
 
 # Fix the `weights` argument in `models` to prevent a warning messages
-resnet18 = models.resnet18(weights="ResNet18_Weights.DEFAULT")
 alexnet = models.alexnet(weights="AlexNet_Weights.DEFAULT")
+resnet18 = models.resnet18(weights="ResNet18_Weights.DEFAULT")
 vgg16 = models.vgg16(weights="VGG16_Weights.DEFAULT")
 
 models = {
-    "resnet": resnet18,
     "alexnet": alexnet,
+    "resnet": resnet18,
     "vgg": vgg16
 }
 
 # obtain ImageNet labels
-with open("labels/imagenet1000-clsid-to-human.txt") as imagenet_classes_file:
+with open("../data/labels/imagenet1000-clsid-to-human.txt") as imagenet_classes_file:
     imagenet_classes_dict = ast.literal_eval(imagenet_classes_file.read())
 
-def classifier(img_path, model_name):
+def classifier(
+    img_path: str,
+    model_name: str
+) -> str:
+    """
+    Loads an image and applies a model to it. Returns the predicted class as a string.
+
+    Args:
+        img_path (str): path to the image
+        model_name (str): name of the model to use
+
+    Returns:
+        str: predicted class
+    """
     # load the image
     img_pil = Image.open(img_path)
 

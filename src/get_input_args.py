@@ -1,7 +1,7 @@
 import argparse
 
 
-def get_input_args():
+def get_input_args() -> argparse.Namespace:
     """
     Retrieves and parses the 3 command line arguments provided by the user when
     they run the program from a terminal window. This function uses Python's
@@ -9,17 +9,17 @@ def get_input_args():
     then the default values are used for the missing arguments.
 
     Command-line arguments:
-        1. Image folder as --dir with default value "pet-images"
+        1. Image folder as --dir with default value "../data/pet-images"
         2. CNN model architecture as --arch with default value "vgg"
-        3. Text file with dog names as --dogfile with default value "dognames.txt"
+        3. Text file with dog names as --dogfile with default value "../data/labels/dognames.txt"
     
     This function returns these arguments as an ArgumentParser object.
     
     Parameters:
-        None - simply using argparse module to create and store command-line arguments
+        None
     
     Returns:
-        parse_args() - data structure that stores the command-line arguments object
+        argparse.Namespace - data structure that stores the command-line arguments object
     """
 
     # Create parser using ArgumentParser
@@ -31,7 +31,7 @@ def get_input_args():
     # Argument 1: Image folder as --dir with default value "pet-images"
     parser.add_argument(
         "--dir", type=str,
-        default="pet-images/",
+        default="../data/pet-images/",
         help="path to the folder of pet images"
     )
 
@@ -45,7 +45,7 @@ def get_input_args():
     # Argument 3: Text file with dog names as --dogfile with default value "labels/dognames.txt"
     parser.add_argument(
         "--dogfile", type=str,
-        default="labels/dognames.txt",
+        default="../data/labels/dognames.txt",
         help="text file of names of dog breeds"
     )
 

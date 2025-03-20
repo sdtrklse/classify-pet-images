@@ -1,4 +1,10 @@
-def adjust_results4_isadog(results_dic, dogfile):
+from typing import Dict, List, Union
+
+
+def adjust_results4_isadog(
+    results_dic: Dict[str, List[Union[str, int]]], 
+    dogfile: str
+) -> None:
     """
     Adjusts the results dictionary to determine if classifier correctly
     classified images "as a dog" or "not a dog" especially when not a match.
@@ -6,8 +12,8 @@ def adjust_results4_isadog(results_dic, dogfile):
     it gets dog breed wrong (not a match).
     
     Parameters:
-        results_dic - Dictionary with "key" as image filename and "value" as a
-            list. Where the list will contain the following items:
+        results_dic (Dict[str, List[Union[str, int]]]): Dictionary with "key" as image
+            filename and "value" as a list. Where the list will contain the following items:
                 index 0 = pet image label (string)
                 index 1 = classifier label (string)
                 index 2 = 1/0 (int)  where 1 = match between pet image
@@ -17,7 +23,7 @@ def adjust_results4_isadog(results_dic, dogfile):
                     0 = pet image "is-NOT-a" dog
                 NEW - index 4 = 1/0 (int)  where 1 = classifier classifies image
                     "as-a" dog and 0 = classifier classifies image "as-NOT-a" dog
-        dogfile - A text file that contains names of all dogs from the classifier
+        dogfile (str): A text file that contains names of all dogs from the classifier
             function and dog names from the pet image files. This file has
             one dog name per line dog names are all in lowercase with
             spaces separating the distinct words of the dog name. Dog names
@@ -31,7 +37,7 @@ def adjust_results4_isadog(results_dic, dogfile):
     """
     
     # Create a dictionary to store all dog names
-    dognames_dic = dict()
+    dognames_dic: Dict[str, int] = dict()
 
     # Read dog names from dogfile and store them in a dictionary
     with open(dogfile) as f:
@@ -41,7 +47,7 @@ def adjust_results4_isadog(results_dic, dogfile):
             
             # Check for duplicate dog names in the file
             if dogname in dognames_dic:
-                print(f"Warning: Duplicate dog name "{dogname}" found in {dogfile}")
+                print(f"Warning: Duplicate dog name '{dogname}' found in {dogfile}")
             else:
                 dognames_dic[dogname] = 1
     
