@@ -1,4 +1,4 @@
-# Image Classification for a City Dog Show
+# Using Pre-trained Image Classifier to Identify Dog Breeds
 
 [![Language](https://img.shields.io/badge/Python-3.12.7-blue.svg)](https://www.python.org/downloads/release/python-3127/)
 [![Framework](https://img.shields.io/badge/PyTorch-2.5.1+cu124-red.svg)](https://pytorch.org/get-started/locally/)
