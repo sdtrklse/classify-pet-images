@@ -1,33 +1,118 @@
 # Image Classification for a City Dog Show
 
-**Project Goal**: Using a pre-trained deep learning model for classification and identification task
+[![Language](https://img.shields.io/badge/Python-3.12.7-blue.svg)](https://www.python.org/downloads/release/python-3127/)
+[![Framework](https://img.shields.io/badge/PyTorch-2.5.1+cu124-red.svg)](https://pytorch.org/get-started/locally/)
+[![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 
-This project involves classifying images using different neural network architectures, managing data flow, and timing the execution of algorithms, allowing me to demonstrate my mastery of these Python concepts in AI programming.
+## Overview
 
-## Description
+In this project, I use a pre-trained deep learning model to classify and identify images for a city dog show. My main goal is to showcase my skills in AI programming by efficiently managing data flow and optimizing algorithm performance. I aim to achieve high classification accuracy and evaluate the performance of various neural network architectures. The expected outcomes include developing a robust image classification system and gaining valuable insights into the effectiveness of different models.
 
-From the Nanodegree project page:
-
-> Your city is hosting a citywide dog show and you have volunteered to help the organizing committee with contestant registration. Every participant that registers must submit an image of their dog along with biographical information about their dog. The registration system tags the images based upon the biographical information.
->
-> Some people are planning on registering pets that *aren’t actual dogs*.
->
-> You need to use an already developed Python classifier to make sure the participants are dogs.
-
-## Principal Objectives
+### Objectives
 
 1. Correctly identify which pet images are of dogs (even if the breed is misclassified) and which pet images aren't of dogs.
 2. Correctly classify the breed of dog, for the images that are of dogs.
-3. Determine which CNN model architecture (ResNet, AlexNet, or VGG) "**best**" achieve objectives 1 and 2.
-4. Consider the *time* resources required to best achieve objectives 1 and 2, and determine if an alternative solution would have given a "**good enough**" result, given the amount of time each of the algorithms takes to run.
+3. Determine which CNN model architecture (ResNet, AlexNet, or VGG) **best** achieves objectives 1 and 2.
+4. Consider the *time* resources required to best achieve objectives 1 and 2, and determine if an alternative solution would have given a **good enough** result, given the amount of time each of the algorithms takes to run.
 
-## Notes
+## Installation
 
-For this image classification task, I use an image classification application using a deep learning model called a convolutional neural network (often abbreviated as CNN). CNNs work particularly well for detecting features in images like colors, textures, and edges; then using these features to identify objects in the images. I use a CNN that has already *learned* the features from a giant dataset of 1.2 million images called [**ImageNet**](https://www.image-net.org/). There are different types of CNNs that have different structures (architectures) that work better or worse depending on the criteria. With this project, I explore three different architectures (**AlexNet**, **VGG**, and **ResNet**) and determine which is best for the application.
+### Prerequisites
 
-I am provided with a classifier function in `classifier.py` that allows me to use these CNNs to classify the images. For this project, I am focusing on using the Python skills to complete these tasks using the `classifier` function.
+Ensure you have the following installed:
 
-Certain breeds of dogs look very similar. The more images of two similar-looking dog breeds that the algorithm has *learned* from, the more likely the algorithm will be able to distinguish between those two breeds. The following breeds look very similar: [**Great Pyrenees**](https://www.google.com/search?q=Great+Pyrenees&source=lnms&tbm=isch&sa=X&ved=0ahUKEwje252-kpfZAhVF3FMKHeXwB3IQ_AUICigB&biw=1112&bih=1069) and [**Kuvasz**](https://www.google.com/search?tbm=isch&q=Kuvasz&spell=1&sa=X&ved=0ahUKEwi9_9fTkpfZAhWB7FMKHXlKDWoQBQg6KAA&biw=1112&bih=1069&dpr=1), [**German Shepherd**](https://www.google.com/search?biw=1112&bih=1069&tbm=isch&sa=1&ei=d7F8WpaaMc_VzgLW8LvABw&q=German+Shepherd&oq=German+Shepherd&gs_l=psy-ab.3..0i67k1j0l2j0i67k1j0l6.31751.41069.0.41515.29.18.4.7.9.0.131.1164.14j2.17.0....0...1c.1.64.psy-ab..2.26.1140.0..0i10k1j0i13k1.112.xUB8_AoVF9w) and [**Malinois**](https://www.google.com/search?biw=1112&bih=1069&tbm=isch&sa=1&ei=orF8WtHWDcOdzwLnyLXgBw&q=Malinois&oq=Malinois&gs_l=psy-ab.3..0l3j0i67k1l3j0l2j0i67k1j0.31864.42125.0.42493.23.20.0.1.1.0.132.1460.14j4.19.0....0...1c.1.64.psy-ab..8.14.926.0...75.U5aOu6JZ9Vk), [**Beagle**](https://www.google.com/search?biw=1112&bih=1069&tbm=isch&sa=1&ei=zbF8WqTiHZDxzgKlm5SYBw&q=Beagle&oq=Beagle&gs_l=psy-ab.3..0i67k1j0l2j0i67k1l2j0l5.29396.33482.0.34041.12.8.3.1.1.0.126.585.6j2.8.0....0...1c.1.64.psy-ab..0.12.609...0i10k1.0.Dr92CW2Kqqo) and [**Walker Hound**](https://www.google.com/search?biw=1112&bih=1069&tbm=isch&sa=1&ei=8LF8WteAGND0zgKvlL-IBw&q=Walker+hound&oq=Walker+hound&gs_l=psy-ab.3..0l10.20697.23454.0.23773.12.10.0.2.2.0.81.601.10.10.0....0...1c.1.64.psy-ab..0.12.610...0i67k1.0.GI0QxI1sadY), amongst others.
+- Python (>=3.12)
+- pip
+
+### Steps
+
+1. Clone the repository
+
+    ```sh
+    git clone https://github.com/sdtrklse/classify-pet-images.git
+    cd classify-pet-images
+    ```
+
+2. Create and activate a virtual environment
+
+    ```sh
+    python -m venv demo # `python3 -m venv demo` on some systems
+    source demo/Scripts/activate # `source demo/bin/activate` on some systems
+    ```
+
+3. Install dependencies
+
+    ```sh
+    pip install -r requirements.txt
+    ```
+
+## Project Structure
+
+This project follows a structured directory layout for better organization and maintainability. Below is the folder hierarchy:
+
+```sh
+project_root/
+│── assets/               # Images, diagrams, icons, and other media
+│── data/                 # Dataset storage
+│── outputs/              # Model artifacts, predictions, reports
+│── src/                  # Source code for the project
+│── .gitignore            # Files to ignore in version control
+│── answers.md            # Answers to project-related questions
+│── LICENSE               # License for project usage
+│── README.md             # Project documentation
+└── requirements.txt      # Python dependencies
+```
+
+## Dataset
+
+- **Description:** The pet image files are located in the folder `data/pet-images`. There are 40 total pet images:
+  - 30 images of dogs
+  - 10 images of animals that aren't dogs
+- **Preprocessing Steps:**
+  - Image resizing to 256x256
+  - Center cropping and tensor conversion
+  - Normalization using ImageNet mean and standard deviation
+
+## Model
+
+I use a CNN that has already *learned* the features from a giant dataset of 1.2 million images called [**ImageNet**](https://www.image-net.org/). There are different types of CNNs that have different structures (architectures) that work better or worse depending on the criteria. Within this project, I explore *three* different architectures and determine which is best for the application. Specifically, I am provided with a classifier function in `classifier.py` that allows me to use these CNNs to classify the images.
+
+- **Feature Extractors:** AlexNet, ResNet, VGG (pre-trained on ImageNet)
+- **Frameworks/Libraries:** PyTorch, torchvision, Pillow
+
+## Usage
+
+### Running the Project
+
+To run the app with default arguments, you can issue
+
+  ```sh
+  python check-images.py
+  ```
+
+from the command line inside the `src` directory. The app will then display the results of the image classification process.
+
+To run the app with different arguments, you can issue
+
+  ```sh
+  python check_images.py --dir <image_directory> --arch <model_architecture>
+  ```
+
+from the command line inside the `src` directory. The arguments are as follows:
+
+- `--dir`: The directory containing the images to be classified
+  - Options: `../data/pet-images/`, `../data/uploaded-images/`
+- `--arch`: The CNN model architecture to be used
+  - Options: `alexnet`, `resnet`, `vgg`
+
+Additionally, you can run the app with batch processing by issuing
+
+  ```sh
+  sh batch-processing/run_models_batch.sh # for pet images
+  sh batch-processing/run_models_batch_uploaded.sh # for uploaded images
+  ```
+
+from the command line inside the `src` directory. The results will be saved in the `outputs` directory.
 
 ## Results
 
@@ -39,40 +124,15 @@ Certain breeds of dogs look very similar. The more images of two similar-looking
 </p>
 <p align="center"><em>Results Table</em></p>
 
-Given the results, the "best" model architecture is **VGG**. It outperformed both of the other architectures when considering both objectives 1 and 2. ResNet did classify dog breeds better than AlexNet, but only VGG and AlexNet were able to classify "dogs" and "not-a-dog" at **100% accuracy**. The model VGG was the one that was able to classify "dogs" and "not-a-dog" with **100% accuracy** and had the best performance regarding breed classification with **93.3% accuracy**.
+Given the results, the "best" model architecture is **VGG**. It outperformed both of the other architectures when considering both objectives 1 and 2. ResNet did classify dog breeds better than AlexNet, but only VGG and AlexNet were able to classify "dogs" and "not-a-dog" at **100% accuracy**. The VGG model was the one that was able to classify "dogs" and "not-a-dog" with **100% accuracy** and had the best performance regarding breed classification with **93.3% accuracy**.
 
-## Dependencies
+## Features
 
-To install dependencies with pip, one can issue `pip install -r requirements.txt`.
+- Utilizes pre-trained CNN models (AlexNet, ResNet, VGG) for high accuracy in image classification.
+- Implements efficient data preprocessing techniques for robust model performance.
+- Supports customizable model architecture selection for flexible experimentation.
+- Provides batch processing scripts for large-scale image classification tasks.
 
-## How to Run the App
+## License
 
-To run the app with default arguments, one can issue
-
-```shell
-python check-images.py
-```
-
-from the command line inside the `project-files` directory. The app will then display the results of the image classification process.
-
-To run the app with different arguments, one can issue
-
-```shell
-python check_images.py --dir <image_directory> --arch <model_architecture>
-```
-
-from the command line inside the `project-files` directory. The arguments are as follows:
-
-- `--dir`: The directory containing the images to be classified.
-  - Options: `pet-images/`, `uploaded-images/`
-- `--arch`: The CNN model architecture to be used.
-  - Options: `alexnet`, `vgg`, `resnet`
-
-Additionally, one can run the app with batch processing by issuing
-
-```shell
-sh batch-processing/run_models_batch.sh # for pet images, or
-sh batch-processing/run_models_batch_uploaded.sh # for uploaded images
-```
-
-from the command line inside the `project-files` directory. The results will be saved in the `outputs` directory.
+This project is licensed under the MIT License - see the [**LICENSE**](LICENSE) file for details.
