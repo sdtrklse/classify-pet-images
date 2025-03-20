@@ -10,7 +10,7 @@ In this project, I use a pre-trained deep learning model to classify and identif
 
 ### Objectives
 
-1. Correctly identify which pet images are of dogs (even if the breed is misclassified) and which pet images aren't of dogs.
+1. Correctly identify which pet images are of dogs (even if the breed is misclassified) and which ones aren't of dogs.
 2. Correctly classify the breed of dog, for the images that are of dogs.
 3. Determine which CNN model architecture (ResNet, AlexNet, or VGG) **best** achieves objectives 1 and 2.
 4. Consider the *time* resources required to best achieve objectives 1 and 2, and determine if an alternative solution would have given a **good enough** result, given the amount of time each of the algorithms takes to run.
@@ -48,7 +48,9 @@ Ensure you have the following installed:
 
 ## Project Structure
 
-This project follows a structured directory layout for better organization and maintainability. Below is the folder hierarchy:
+This project follows a structured directory layout for better organization and maintainability.
+
+Below is the folder hierarchy:
 
 ```sh
 project_root/
@@ -75,7 +77,7 @@ project_root/
 
 ## Model
 
-I use a CNN that has already *learned* the features from a giant dataset of 1.2 million images called [**ImageNet**](https://www.image-net.org/). There are different types of CNNs that have different structures (architectures) that work better or worse depending on the criteria. Within this project, I explore *three* different architectures and determine which is best for the application. Specifically, I am provided with a classifier function in `classifier.py` that allows me to use these CNNs to classify the images.
+I use a CNN that has already *learned* the features from a giant dataset of 1.2 million images called [**ImageNet**](https://www.image-net.org/). There are different types of CNNs that have different structures (architectures) that work better or worse depending on the criteria. Within this project, I explore *three* different architectures and determine which is best for the application. Specifically, I am provided with a classifier function in `classifier.py` that allows me to use these CNNs.
 
 - **Feature Extractors:** AlexNet, ResNet, VGG (pre-trained on ImageNet)
 - **Frameworks/Libraries:** PyTorch, torchvision, Pillow
@@ -90,7 +92,7 @@ To run the app with default arguments, you can issue
   python check-images.py
   ```
 
-from the command line inside the `src` directory. The app will then display the results of the image classification process.
+from the command line inside the `src` directory. The app will then display the results of the image classification.
 
 To run the app with different arguments, you can issue
 
@@ -116,15 +118,15 @@ from the command line inside the `src` directory. The results will be saved in t
 
 ## Results
 
-- For objective 1, both VGG and AlexNet correctly identify images of "dogs" and "not-a-dog" 100% of the time.
-- For objective 2, VGG provides the best solution because it classifies the correct breed of dog over 90% of the time.
+- Both VGG and AlexNet correctly identify images of "dogs" and "not-a-dog" 100% of the time.
+- VGG provides the best solution because it classifies the correct breed of dog over 90% of the time.
 
 <p align="center">
     <img src="assets/results.png" alt="Overall Results">
 </p>
 <p align="center"><em>Results Table</em></p>
 
-Given the results, the "best" model architecture is **VGG**. It outperformed both of the other architectures when considering both objectives 1 and 2. ResNet did classify dog breeds better than AlexNet, but only VGG and AlexNet were able to classify "dogs" and "not-a-dog" at **100% accuracy**. The VGG model was the one that was able to classify "dogs" and "not-a-dog" with **100% accuracy** and had the best performance regarding breed classification with **93.3% accuracy**.
+Given the results, the "best" architecture is **VGG**. It outperformed both of the other architectures when considering both objectives 1 and 2. ResNet did classify dog breeds better than AlexNet, but only VGG and AlexNet were able to classify "dogs" and "not-a-dog" at **100% accuracy**. The VGG model was the one that was able to classify "dogs" and "not-a-dog" with **100% accuracy** and had the best performance regarding breed classification with **93.3% accuracy**.
 
 ## Features
 
