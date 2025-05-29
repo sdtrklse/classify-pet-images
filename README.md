@@ -1,4 +1,4 @@
-# Using Pre-trained Image Classifier to Identify Dog Breeds
+# Identifying Dog Breeds
 
 [![Language](https://img.shields.io/badge/Python-3.12.7-blue.svg)](https://www.python.org/downloads/release/python-3127/)
 [![Framework](https://img.shields.io/badge/PyTorch-2.5.1+cu124-red.svg)](https://pytorch.org/get-started/locally/)
@@ -6,7 +6,7 @@
 
 ## Overview
 
-In this project, I use a pre-trained deep learning model to classify and identify images for a city dog show. My main goal is to showcase my skills in AI programming by efficiently managing data flow and optimizing algorithm performance. I aim to achieve high classification accuracy and evaluate the performance of various neural network architectures. The expected outcomes include developing a robust image classification system and gaining valuable insights into the effectiveness of different models.
+In this project, I use a *pre-trained deep learning model* to classify and identify images for a city dog show. My main goal is to showcase my skills in AI programming by efficiently managing data flow and optimizing algorithm performance. I aim to achieve high classification accuracy and evaluate the performance of various neural network architectures. The expected outcomes include developing a robust image classification system and gaining valuable insights into the effectiveness of different models.
 
 ### Objectives
 
@@ -36,8 +36,8 @@ Ensure you have the following installed:
 2. Create and activate a virtual environment
 
     ```sh
-    python -m venv demo # `python3 -m venv demo` on some systems
-    source demo/Scripts/activate # `source demo/bin/activate` on some systems
+    python -m venv demo  # `python3 -m venv demo` on some systems
+    source demo/Scripts/activate  # `source demo/bin/activate` on some systems
     ```
 
 3. Install dependencies
@@ -68,12 +68,12 @@ project_root/
 ## Dataset
 
 - **Description:** The pet image files are located in the folder `data/pet-images`. There are 40 total pet images:
-  - 30 images of dogs
-  - 10 images of animals that aren't dogs
+    - 30 images of dogs
+    - 10 images of animals that aren't dogs
 - **Preprocessing Steps:**
-  - Image resizing to 256x256
-  - Center cropping and tensor conversion
-  - Normalization using ImageNet mean and standard deviation
+    - Image resizing to 256x256
+    - Center cropping and tensor conversion
+    - Normalization using ImageNet mean and standard deviation
 
 ## Model
 
@@ -103,15 +103,15 @@ To run the app with different arguments, you can issue
 from the command line inside the `src` directory. The arguments are as follows:
 
 - `--dir`: The directory containing the images to be classified
-  - Options: `../data/pet-images/`, `../data/uploaded-images/`
+    - Options: `../data/pet-images/`, `../data/uploaded-images/`
 - `--arch`: The CNN model architecture to be used
-  - Options: `alexnet`, `resnet`, `vgg`
+    - Options: `alexnet`, `resnet`, `vgg`
 
 Additionally, you can run the app with batch processing by issuing
 
   ```sh
-  sh batch-processing/run_models_batch.sh # for pet images
-  sh batch-processing/run_models_batch_uploaded.sh # for uploaded images
+  sh batch-processing/run_models_batch.sh  # for pet images
+  sh batch-processing/run_models_batch_uploaded.sh  # for uploaded images
   ```
 
 from the command line inside the `src` directory. The results will be saved in the `outputs` directory.
