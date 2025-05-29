@@ -10,7 +10,7 @@ from print_results import print_results
 
 
 # Main program function
-def main() -> None:
+def main():
     """
     Main function that orchestrates the image classification process and calculates runtime.
 
@@ -22,6 +22,7 @@ def main() -> None:
         - Calculates and prints statistical results
         - Measures and prints total program runtime
     """
+
     # Measure total program runtime by collecting start time
     start_time = time.time()
 
@@ -42,7 +43,7 @@ def main() -> None:
 
     # Print results and incorrect classifications if requested
     print_results(results, results_stats, in_arg.arch, True, True)
-    
+
     # Measure total program runtime by collecting end time
     end_time = time.time()
 
@@ -51,7 +52,7 @@ def main() -> None:
     hours = int(tot_time / 3600)
     minutes = int((tot_time % 3600) / 60)
     seconds = int((tot_time % 3600) % 60)
-
+    
     print(f"\nTotal Elapsed Runtime: {hours:02}:{minutes:02}:{seconds:02}\n")
 
 

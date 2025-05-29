@@ -1,4 +1,5 @@
 # The code in this file is provided by Udacity as part of the project.
+# It is used to classify pet images using pretrained models from PyTorch.
 
 import ast
 from PIL import Image
@@ -6,6 +7,7 @@ import torchvision.transforms as transforms
 from torch.autograd import Variable
 import torchvision.models as models
 from torch import __version__
+
 
 # Fix the `weights` argument in `models` to prevent a warning messages
 alexnet = models.alexnet(weights="AlexNet_Weights.DEFAULT")
@@ -22,10 +24,7 @@ models = {
 with open("../data/labels/imagenet1000-clsid-to-human.txt") as imagenet_classes_file:
     imagenet_classes_dict = ast.literal_eval(imagenet_classes_file.read())
 
-def classifier(
-    img_path: str,
-    model_name: str
-) -> str:
+def classifier(img_path, model_name):
     """
     Loads an image and applies a model to it. Returns the predicted class as a string.
 
